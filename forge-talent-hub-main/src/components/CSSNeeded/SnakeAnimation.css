@@ -1,0 +1,14 @@
+.leFadeIn span {
+  animation-name: leFadeIn;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes leFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
