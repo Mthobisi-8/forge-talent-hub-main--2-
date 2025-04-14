@@ -39,7 +39,7 @@ const Features = () => {
     <section className="py-20 relative">
       <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient bg-clip-text text-gray-300 bg-gradient-to-r from-sky-400 to-pink-600 py-3 font-heading animate-fade-in">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient bg-clip-text text-gray-300 bg-gradient-to-r from-sky-400 to-pink-600 py-3 font-heading animate-fade-in italic">
           Why Choose Forge Talent?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

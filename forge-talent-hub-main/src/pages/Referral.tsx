@@ -54,7 +54,6 @@ const Referral: React.FC = () => {
     alignItems: 'center',
     justifyContent: 'center',
     color: 'transparent',
-    
   };
 
   const coverStyle: React.CSSProperties = {
@@ -75,7 +74,7 @@ const Referral: React.FC = () => {
   };
 
   const insideStyle: React.CSSProperties = {
-    position: 'absolute',
+    position: 'relative', // Changed to relative for absolute positioning of button
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -105,19 +104,19 @@ const Referral: React.FC = () => {
 
   return (
     <>
-     <div 
-        className="fixed inset-0 z-[-1] opacity-60"
-        style={{
-          background: 'radial-gradient(circle, rgba(131,14,227,1) 0%, rgba(214,36,190,1) 25%, rgba(44,205,230,1) 50%, rgba(30,61,214,1) 75%, rgba(217,67,122,1) 100%)'
-        }}
-      ></div>
+       <div className="fixed inset-0 z-[-1] vr-background">
+  <div className="particle-layer" />
+
+  {/* Add a subtle overlay to soften background without hiding animation */}
+  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+</div>
       <Header />
       
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col text-white mt-10">
         <div className="container mx-auto flex flex-col items-center justify-center text-center py-16 mb-8 lg:flex-row lg:items-center">
           <div className="lg:w-1/2">
-            <h1 className="text-5xl font-bold text-gradient mb-6 text-white">
+            <h1 className="text-5xl font-bold text-gradient mb-6 text-white italic">
               Empower Your Organization with Essential Tech Skills
             </h1>
             <p className="text-lg max-w-2xl mb-8 text-gray-200">
@@ -224,10 +223,10 @@ const Referral: React.FC = () => {
       {/* InfoCards Section (With Book Feature) */}
       <section className="py-16">
         <div className="container mx-auto text-center">
-          <h2 className=" text-white text-4xl font-bold text-gradient mb-8 italic bg-gradient-to-r from-sky-400 to-pink-600 py-1">
+          <h2 className="text-white text-4xl font-bold text-gradient mb-8 italic bg-gradient-to-r from-sky-400 to-pink-600 py-1">
             Build a Future-Ready Workforce with Forge Talent
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
                 img: "/Corp2.jpg",
@@ -252,40 +251,63 @@ const Referral: React.FC = () => {
             ].map((card, index) => (
               <Card
                 key={index}
-                className="bg-gray-400 border-purple-500/20 shadow-lg shadow-pink-900  rounded-3xl"
+                className="bg-gray-400 border-purple-500/20 shadow-lg shadow-pink-900 rounded-3xl"
                 style={{ height: '600px', overflow: 'hidden' }}
               >
                 <div
                   style={bookStyle}
                   onMouseEnter={(e) => {
-                    const cover = e.currentTarget.querySelector('.cover') as HTMLElement | null;
-                    if (cover) cover.style.transform = 'rotateY(-80deg)';
+                    if (window.innerWidth >= 768) { // Only apply on non-mobile screens
+                      const cover = e.currentTarget.querySelector('.cover') as HTMLElement | null;
+                      if (cover) cover.style.transform = 'rotateY(-80deg)';
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    const cover = e.currentTarget.querySelector('.cover') as HTMLElement | null;
-                    if (cover) cover.style.transform = 'rotateY(0deg)';
+                    if (window.innerWidth >= 768) { // Only apply on non-mobile screens
+                      const cover = e.currentTarget.querySelector('.cover') as HTMLElement | null;
+                      if (cover) cover.style.transform = 'rotateY(0deg)';
+                    }
                   }}
                 >
-                  <div className="cover" style={coverStyle}>
+                  <div
+                    className="cover"
+                    style={{
+                      ...coverStyle,
+                      transform: openCard === index ? 'rotateY(-80deg)' : 'rotateY(0deg)', // Controlled by state
+                    }}
+                  >
                     <CardContent className="p-6 text-center">
-                      <img 
-                        src={card.img} 
-                        className="mx-auto mb-4 rounded-2xl w-full h-auto" 
-                        alt={card.title} 
+                      <img
+                        src={card.img}
+                        className="mx-auto mb-4 rounded-2xl w-full h-auto"
+                        alt={card.title}
                         style={{ objectFit: 'cover' }}
                       />
                       <h5 style={paragraphStyle}>{card.title}</h5>
-                      <Button
-                        className="mt-8 md:hidden" // Hidden on md and above
-                        onClick={() => handleToggleCard(index)}
-                      >
-                        {openCard === index ? 'CLOSE' : 'OPEN ME'}
-                      </Button>
+                      {openCard !== index && (
+                        <Button
+                          className="mt-8 md:hidden items-center rounded-xl"
+                          onClick={() => handleToggleCard(index)}
+                          aria-label={`Open ${card.title}`}
+                        >
+                          OPEN
+                        </Button>
+                      )}
                     </CardContent>
-                    
                   </div>
-                  <div style={insideStyle}>
-                    <p className="ml-8" style={descriptionStyle}>{card.text}</p>
+                  <div 
+                  className="ml-12"
+                  style={insideStyle}>
+                    <p style={descriptionStyle}>{card.text}</p>
+                    {openCard === index && (
+                      <Button
+                        className="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 mt-4 rounded-xl"
+                        onClick={() => handleToggleCard(index)}
+                        aria-label={`Close ${card.title}`}
+                      >
+                        CLOSE
+                      </Button>
+                    )}
                   </div>
                 </div>
               </Card>

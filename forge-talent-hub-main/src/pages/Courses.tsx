@@ -119,12 +119,12 @@ const Courses = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
       {/* Background Layer */}
-      <div 
-        className="fixed inset-0 z-[-1] opacity-60"
-        style={{
-          background: 'radial-gradient(circle, rgba(131,14,227,1) 0%, rgba(214,36,190,1) 25%, rgba(44,205,230,1) 50%, rgba(30,61,214,1) 75%, rgba(217,67,122,1) 100%)'
-        }}
-      ></div>
+      <div className="fixed inset-0 z-[-1] vr-background">
+  <div className="particle-layer" />
+
+  {/* Add a subtle overlay to soften background without hiding animation */}
+  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+</div>
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow pt-24 pb-20">
@@ -253,7 +253,7 @@ const Courses = () => {
 
             {/*Explore courses card*/ }
             <section className="mb-28">
-              <h1 className=" text-white text-4xl font-bold mb-10 text-gradient text-center">
+              <h1 className=" text-white text-4xl font-bold mb-10 text-gradient text-center italic">
                 Explore Our Courses
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
@@ -319,18 +319,18 @@ const Courses = () => {
             <section className="py-16 relative">
               <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
               <div className="container mx-auto px-4 relative z-10">
-                <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-14 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-pink-600 py-3 font-heading animate-fade-in">
+                <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-14 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-pink-600 py-3 font-heading animate-fade-in italic">
                   What Our Learners Say
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {testimonials.map((testimonial, index) => (
                     <Card
                       key={index}
-                      className="bg-[hsl(270,50%,15%)]/80 border-pink-950 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-transform duration-300 hover:scale-105 animate-fade-in"
+                      className="bg-[hsl(270,50%,15%)] border-pink-950 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-transform duration-300 group hover:scale-105 animate-fade-in"
                       style={{ animationDelay: `${index * 200}ms` }}
                     >
                       <CardContent className="p-6 text-center">
-                        <p className="text-[hsl(190,60%,90%)] mb-4 italic hover:text-sky-600">"{testimonial.text}"</p>
+                        <p className="text-[hsl(190,60%,90%)] mb-4 italic  hover:text-sky-600">"{testimonial.text}"</p>
                         <p className="text-pink-500 font-semibold">{testimonial.name}</p>
                         <p className="text-[hsl(190,60%,90%)] text-sm">{testimonial.role}</p>
                       </CardContent>

@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
   const inputStyle: React.CSSProperties = {
     padding: '10px',
     borderRadius: '5px',
-    backgroundColor: 'gray',
+    backgroundColor:  'rgb(17, 24, 39)',
     transition: 'border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.1s ease-in-out',
     transformStyle: 'preserve-3d',
     backfaceVisibility: 'hidden',
@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
   const textareaStyle: React.CSSProperties = {
     padding: '10px',
     borderRadius: '5px',
-    backgroundColor: 'gray',
+    backgroundColor: 'rgb(17, 24, 39)',
     transition: 'border-color 0.1s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
     transformStyle: 'preserve-3d',
     backfaceVisibility: 'hidden',
@@ -118,12 +118,12 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col ">
       {/* Background Layer */}
-      <div 
-        className="fixed inset-0 z-[-1] opacity-60"
-        style={{
-          background: 'radial-gradient(circle, rgba(131,14,227,1) 0%, rgba(214,36,190,1) 25%, rgba(44,205,230,1) 50%, rgba(30,61,214,1) 75%, rgba(217,67,122,1) 100%)'
-        }}
-      ></div>
+      <div className="fixed inset-0 z-[-1] vr-background">
+  <div className="particle-layer" />
+
+  {/* Add a subtle overlay to soften background without hiding animation */}
+  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+</div>
       <style>
         {`
           @keyframes formAnimation {
@@ -144,7 +144,7 @@ const Contact: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="space-y-6 ">
-              <h1 className="text-3xl font-bold text-gradient text-gray-200">Get in Touch</h1>
+              <h1 className="text-3xl font-bold text-gradient text-gray-200 italic">Get in Touch</h1>
               <p className="font-bold text-gradient text-gray-50">
                 Don't forget to include your cell number in case we can't reach you through email:
               </p>
@@ -368,7 +368,7 @@ const Contact: React.FC = () => {
 
             {/* Contact Information */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gradient text-gray-200">We're Here to Help</h2>
+              <h2 className="text-3xl font-bold text-gradient text-gray-200 italic">We're Here to Help</h2>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-sky-200">
                   <Mail className="h-5 w-5 text-sky-400" />

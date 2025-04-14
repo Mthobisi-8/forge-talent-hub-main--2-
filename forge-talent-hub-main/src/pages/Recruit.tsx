@@ -100,19 +100,19 @@ const Recruit = () => {
 
   return (
     <div className="min-h-screen flex flex-col animate-glow">
-      <div 
-        className="fixed inset-0 z-[-1] opacity-60"
-        style={{
-          background: 'radial-gradient(circle, rgba(131,14,227,1) 0%, rgba(214,36,190,1) 25%, rgba(44,205,230,1) 50%, rgba(30,61,214,1) 75%, rgba(217,67,122,1) 100%)'
-        }}
-      ></div>
+        <div className="fixed inset-0 z-[-1] vr-background">
+  <div className="particle-layer" />
+
+  {/* Add a subtle overlay to soften background without hiding animation */}
+  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+</div>
      
       <Header />
       <main className="flex-grow pt-20 pb-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <section className="text-center mb-12 animate-fade-in">
-            <h1 className="text-4xl text-white sm:text-5xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-pink-600 py-4 mb-4 font-heading">
+            <h1 className="text-4xl text-white sm:text-5xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-pink-600 py-4 mb-4 font-heading italic">
               Find Your Dream Job
             </h1>
             <p className="text-lg text-gray-200 max-w-2xl mx-auto">
@@ -230,7 +230,7 @@ const Recruit = () => {
                         rel="noopener noreferrer"
                         className="block"
                       >
-                        <Button className="w-full bg-pink-500 text-[hsl(190,60%,90%)] font-semibold py-3 rounded-md transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50 hover:bg-purple-950">
+                        <Button className="w-full bg-pink-500 text-[hsl(190,60%,90%)] font-semibold py-3 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50 hover:bg-purple-950 ">
                           Apply Now
                         </Button>
                       </a>

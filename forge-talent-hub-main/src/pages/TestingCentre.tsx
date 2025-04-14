@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 const TestingCentre = () => {
   return (
     <div className="min-h-screen flex flex-col ">
-      <div 
-        className="fixed inset-0 z-[-1] opacity-60"
-        style={{
-          background: 'radial-gradient(circle, rgba(131,14,227,1) 0%, rgba(214,36,190,1) 25%, rgba(44,205,230,1) 50%, rgba(30,61,214,1) 75%, rgba(217,67,122,1) 100%)'
-        }}
-      ></div>
+        <div className="fixed inset-0 z-[-1] vr-background">
+  <div className="particle-layer" />
+
+  {/* Add a subtle overlay to soften background without hiding animation */}
+  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+</div>
       <Header />
       
       

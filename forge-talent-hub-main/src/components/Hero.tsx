@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
           {/* Left Section: Text & Buttons */}
           <div className="text-center md:text-left md:w-1/2">
-            <h1 className="text-5xl md:text-7xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-950">
+            <h1 className="text-5xl md:text-7xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
               Inspire Careers
             </h1>
 
@@ -142,7 +142,7 @@ const Hero = () => {
         <section className="py-16 relative">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           <div className="container mx-auto px-4 relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-14 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-gray-200 py-3 font-heading animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-14 text-gradient bg-clip-text text-white to-gray-200  py-3 font-heading animate-fade-in">
               Discover More
             </h2>
             <div className="grid md:grid-cols-3 gap-8">

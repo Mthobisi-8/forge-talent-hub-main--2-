@@ -78,11 +78,17 @@ const Header = () => {
       <div
         className={`fixed top-0 left-0 w-full h-full  shadow-lg transform transition-transform duration-300  ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden flex flex-col items-center justify-center`}
-        style={{
-          background: 'radial-gradient(circle, rgba(131,14,227,1) 0%, rgba(214,36,190,1) 25%, rgba(44,205,230,1) 50%, rgba(30,61,214,1) 75%, rgba(217,67,122,1) 100%) '
-        }}
-      >
+        } md:hidden flex flex-col items-center justify-center`}>
+        <div className="fixed inset-0 z-[-1]">
+  {/* Solid dark background */}
+  <div className="absolute inset-0 bg-black" />
+
+  {/* VR Animation background */}
+  <div className="vr-background absolute inset-0" />
+
+  {/* Particle layer for subtle movement */}
+  <div className="particle-layer absolute inset-0" />
+</div>
         {/* Close Button (X to close the sidebar) */}
         <button
           onClick={() => setIsOpen(false)} // Close the menu when X is clicked
