@@ -32,7 +32,7 @@
       #ff007a 100% /* Vibrant magenta */
     );
     background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    animation: gradientShift 30s ease infinite;
     opacity: 0.9;
   }
   
@@ -83,9 +83,7 @@
   }
   
   /* Optional: Add a subtle pulse to the section for VR immersion */
-  section:hover {
-    animation: pulse 2s ease-in-out infinite;
-  }
+
   
   @keyframes pulse {
     0%, 100% {

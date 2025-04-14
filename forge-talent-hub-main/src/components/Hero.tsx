@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
 
+
 const Hero = () => {
   const videoRef = useRef(null);
   const location = useLocation();
@@ -37,8 +38,8 @@ const Hero = () => {
     
     
     <div className="relative  min-h-screen">
-      <div className="container mx-auto px-4 py-24">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+      <div className="container mx-auto px-4 py-24 ">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between ">
           {/* Left Section: Text & Buttons */}
           <div className="text-center md:text-left md:w-1/2">
             <h1 className="text-5xl md:text-7xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
@@ -51,13 +52,15 @@ const Hero = () => {
           </div>
 
           {/* Right Section: Image */}
-          <div className="md:w-1/2 flex justify-end">
-            <img
-              src="/forgery.jpg"
-              alt="Empowering Careers"
-              className="w-full h-auto md:h-[32rem] object-cover shadow-2xl shadow-sky-600 rounded-2xl "
-            />
-          </div>
+          <div className="w-full md:w-[500px] lg:w-[600px] xl:w-[700px] mx-auto mt-16 rounded-3xl overflow-hidden ">
+  <iframe
+    className="w-full h-[400px]"
+    src="https://lottie.host/embed/ae2ea7c7-3509-4d2c-9086-78e7ef6600b8/InQlrg3Q5c.lottie"
+    title="Lottie Animation"
+    frameBorder="0"
+    allowFullScreen
+  ></iframe>
+</div>
         </div>
 
           {/* Quick Stats Section */}

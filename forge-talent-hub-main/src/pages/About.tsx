@@ -12,7 +12,7 @@ const About = () => {
   <div className="particle-layer" />
 
   {/* Add a subtle overlay to soften background without hiding animation */}
-  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+  <div className="absolute inset-0 bg-black/40 pointer-events-auto" />
 </div>
 
       {/* Content Layer */}
