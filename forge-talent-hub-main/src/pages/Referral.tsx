@@ -136,7 +136,7 @@ const Referral: React.FC = () => {
         <Link to="/contact">Contact Us</Link>
       </Button>
     </div>
-    <div className="w-full md:w-[500px] lg:w-[600px] xl:w-[700px] mx-auto mt-16 rounded-3xl overflow-hidden ">
+        <div className="w-full md:w-[500px] lg:w-[600px] xl:w-[700px] mx-auto mt-16 rounded-3xl overflow-hidden ">
   <iframe
     className="w-full h-[400px]"
     src="https://lottie.host/embed/917d01cf-4898-40a8-802f-b3a1e7df7cde/Yr2OW458Rq.lottie"

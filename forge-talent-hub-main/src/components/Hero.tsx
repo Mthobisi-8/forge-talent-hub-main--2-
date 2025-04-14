@@ -55,7 +55,7 @@ const Hero = () => {
           <div className="w-full md:w-[500px] lg:w-[600px] xl:w-[700px] mx-auto mt-16 rounded-3xl overflow-hidden ">
   <iframe
     className="w-full h-[400px]"
-    src="https://lottie.host/embed/ae2ea7c7-3509-4d2c-9086-78e7ef6600b8/InQlrg3Q5c.lottie"
+    src="https://lottie.host/embed/80636785-bee6-426f-88cf-e9aae0aec4fb/WehJ7S08Ca.lottie"
     title="Lottie Animation"
     frameBorder="0"
     allowFullScreen
