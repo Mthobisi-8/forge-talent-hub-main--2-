@@ -1,0 +1,7 @@
+[build]
+  base = "forge-talent-hub-main"
+  command = "npm install && npm run build"
+  publish = "dist"
+[build.environment]
+  NODE_VERSION = "18"
+  NETLIFY_USE_NPM = "true"
