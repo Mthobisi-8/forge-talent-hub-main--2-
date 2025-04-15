@@ -31,41 +31,41 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br bg-gray-800 border-pink-950 ">
+    <footer className="bg-gradient-to-br bg-gray-800 border-pink-950">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-screen-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Quick Links */}
           <div className="bg-[hsl(270,50%,15%)]/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-[hsl(270,70%,30%)]/50 transition-transform duration-300 hover:scale-105">
             <h3 className="text-lg font-semibold text-pink-500 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300 font-bold italic ">
-                  HOME
+                <Link to="/" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
+                  Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300 font-bold italic">
-                  ABOUT
+                <Link to="/about" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
+                  About
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300 font-bold italic">
-                  UPSKILL
+                <Link to="/courses" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
+                  Courses
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300 font-bold italic">
-                  CONTACT
+                <Link to="/contact" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
+                  Contact
                 </Link>
               </li>
               <li>
-                <Link to="/testing-centre" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300 font-bold italic">
-                  TESTING CENTRE
+                <Link to="/testing-centre" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
+                  Testing Centre
                 </Link>
               </li>
               <li>
-                <Link to="/Referral" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300 font-bold italic">
-                  CORPORATE
+                <Link to="/Referral" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
+                  Corporate
                 </Link>
               </li>
             </ul>
