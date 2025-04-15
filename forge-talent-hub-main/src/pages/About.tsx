@@ -60,7 +60,7 @@ const About = () => {
 
                   <div className="mt-6 space-y-4">
                     <p className="bg-gradient-to-r from-purple-400 to-pink-600 text-gray-200 bg-clip-text font-extrabold italic">
-                      Forge Talent is a Recruitment agency based in South Africa.
+                      Forge Talent is a recruitment agency based in South Africa.
                     </p>
                     <ul className="pl-6 text-white list-disc space-y-2">
                       <li>✔️ Connecting talented youth with ICT sector opportunities.</li>
