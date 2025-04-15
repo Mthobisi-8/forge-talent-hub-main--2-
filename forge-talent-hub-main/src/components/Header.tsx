@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import loho from "/Talents.png";
 import StarryButton from "./StarryButton";
+import "@/components/CSSNeeded/Font.css";
 
 
 const Header = () => {
@@ -42,9 +43,9 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`hover:text-black text-white transition-colors border-b-2 border-transparent hover:border-purple-600 transform hover:scale-125 font-serif font-extrabold ${
+                className={`hover:text-black text-white transition-colors border-b-2 border-transparent hover:border-purple-600 transform hover:scale-125 font-bold ${
                   item.isHighlighted
-                    ? "bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text font-extrabold italic"
+                    ? "bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text font-bold italic"
                     : ""
                 }`} // Apply gradient effect to Testing Centre
               >
