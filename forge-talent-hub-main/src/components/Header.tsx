@@ -27,12 +27,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 max-w-full"
          >
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center ml-0">
             <a href="/" className="text-2xl font-bold text-primary">
               <img
                 src={loho}
                 alt="Forgulant Logo"
-                className="w-32 h-14 object-center  shadow-lg rounded-md"
+                className=" bg-transparent w-32 h-14 object-contain   rounded-md"
               />
             </a>
           </div>
