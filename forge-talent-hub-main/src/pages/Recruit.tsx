@@ -121,7 +121,7 @@ const Recruit = () => {
           </section>
 
           {/* Search and Filter Bar */}
-          <section className="mb-8 bg-transparent shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-lg p-6 backdrop-blur-sm border border-pink-950 animate-fade-in">
+          <section className="mb-8 bg-transparent  rounded-2xl p-6 backdrop-blur-sm   animate-fade-in">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {/* Search Input */}
               <div className="relative">
@@ -131,16 +131,16 @@ const Recruit = () => {
                   placeholder="Search jobs by title..."
                   value={searchTerm}
                   onChange={handleSearchChange}
-                  className="pl-10 bg-[hsl(270,50%,15%)]/80 border-pink-950 text-[hsl(190,60%,90%)] placeholder:text-[hsl(190,60%,70%)] focus:ring-pink-500 focus:border-pink-500 rounded-lg shadow-lg shadow-[hsl(270,70%,30%)]/50"
+                  className="rounded-2xl pl-10 bg-[hsl(270,50%,15%)]/80 border-pink-950 text-[hsl(190,60%,90%)] placeholder:text-[hsl(190,60%,70%)] focus:ring-pink-500 focus:border-pink-500  shadow-lg shadow-[hsl(270,70%,30%)]/50"
                 />
               </div>
 
               {/* Category Filter */}
               <Select onValueChange={setSelectedCategory} defaultValue="All">
-                <SelectTrigger className="border-pink-950 bg-[hsl(270,50%,15%)]/80 text-[hsl(190,60%,90%)] rounded-lg shadow-lg shadow-[hsl(270,70%,30%)]/50 focus:ring-pink-500 focus:border-pink-500">
+                <SelectTrigger className="border-pink-950 bg-[hsl(270,50%,15%)]/80 text-[hsl(190,60%,90%)] rounded-2xl shadow-lg shadow-[hsl(270,70%,30%)]/50 focus:ring-pink-500 focus:border-pink-500">
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
-                <SelectContent className="bg-[hsl(270,50%,15%)] border-pink-950 text-[hsl(190,60%,90%)]">
+                <SelectContent className="bg-[hsl(270,50%,15%)] border-pink-950 text-[hsl(190,60%,90%)] rounded-2xl">
                   {categories.map((category) => (
                     <SelectItem key={category} value={category}>
                       {category}
@@ -151,7 +151,7 @@ const Recruit = () => {
 
               {/* Experience Filter */}
               <Select onValueChange={setSelectedExperience} defaultValue="All">
-                <SelectTrigger className="border-pink-950 bg-[hsl(270,50%,15%)]/80 text-[hsl(190,60%,90%)] rounded-lg shadow-lg shadow-[hsl(270,70%,30%)]/50 focus:ring-pink-500 focus:border-pink-500">
+                <SelectTrigger className="border-pink-950 bg-[hsl(270,50%,15%)]/80 text-[hsl(190,60%,90%)] rounded-2xl shadow-lg shadow-[hsl(270,70%,30%)]/50 focus:ring-pink-500 focus:border-pink-500">
                   <SelectValue placeholder="Experience Level" />
                 </SelectTrigger>
                 <SelectContent className="bg-[hsl(270,50%,15%)] border-pink-950 text-[hsl(190,60%,90%)]">
@@ -173,7 +173,7 @@ const Recruit = () => {
                 filteredJobs.map((job, index) => (
                   <Card
                     key={index}
-                    className={`bg-gray-500 hover:bg-gray-950 border-pink-950 backdrop-blur-sm shadow-xl shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[hsl(270,70%,40%)]/70 cursor-pointer ${
+                    className={`bg-gray-800 hover:bg-gray-950 border-pink-950 backdrop-blur-sm shadow-xl shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[hsl(270,70%,40%)]/70 cursor-pointer ${
                       selectedJob === index ? "border-pink-500 shadow-[hsl(270,70%,40%)]/70" : ""
                     } animate-fade-in`}
                     style={{ animationDelay: `${index * 200}ms` }}
@@ -203,7 +203,7 @@ const Recruit = () => {
 
             {/* Job Details */}
             <div className="lg:col-span-2" ref={jobDetailsRef}> {/* Added ref */}
-              <Card className="bg-purple-900 border-pink-950 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl p-6 h-full animate-fade-in">
+              <Card className="bg-gray-900 border-pink-950 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl p-6 h-full animate-fade-in">
                 <CardContent>
                   {selectedJob !== null ? (
                     <div className="space-y-6">

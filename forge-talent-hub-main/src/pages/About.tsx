@@ -32,13 +32,13 @@ const About = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   asChild
-                  className="w-full sm:w-auto bg-pink-500 hover:bg-sky-200 hover:text-black text-[hsl(190,60%,90%)] transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
+                  className="rounded-3xl w-full sm:w-auto bg-pink-500 hover:bg-sky-200 hover:text-black text-[hsl(190,60%,90%)] transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
                 >
                   <Link to="/courses">Explore Courses</Link>
                 </Button>
                 <Button
                   asChild
-                  className="w-full sm:w-auto bg-transparent border border-pink-500 text-white hover:text-black hover:bg-purple-900 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
+                  className="rounded-3xl w-full sm:w-auto bg-transparent border border-pink-500 text-white hover:text-black hover:bg-purple-900 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
                 >
                   <Link to="/contact">Get in Touch</Link>
                 </Button>

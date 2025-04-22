@@ -48,15 +48,14 @@ const Features = () => {
             return (
               <div
                 key={index}
-                className="p-6 rounded-2xl border border-pink-950 bg-gray-700 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 transition-all duration-300  group hover:scale-105 hover:shadow-[hsl(270,70%,40%)]/70 hover:border-gray-200  animate-fade-in hover:bg-slate-900"
+                className="p-6 rounded-2xl border border-pink-950 bg-gray-800 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 transition-all duration-300  group hover:scale-105 hover:shadow-[hsl(270,70%,40%)]/70 hover:border-gray-200  animate-fade-in hover:bg-slate-950"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="flex justify-center mb-4">
                   <Icon className="h-12 w-12 text-pink-500 transition-transform duration-300 hover:scale-110" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-950 font-heading text-center group-hover:text-gray-300">
-                  {feature.title}
-                </h3>
+                <h3 className="text-xl font-semibold mb-2 text-sky-700 font-heading text-center group-hover:text-gray-300">
+                  {feature.title}                </h3>
                 <p className="text-sky-400 text-center">{feature.description}</p>
               </div>
             );

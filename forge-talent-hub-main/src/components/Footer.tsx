@@ -123,7 +123,7 @@ const Footer = () => {
               />
               <Button
                 onClick={handleSubscribe}
-                className="bg-pink-500 hover:bg-pink-600 text-[hsl(190,60%,90%)] transition duration-300"
+                className="bg-pink-500 hover:bg-pink-600 text-[hsl(190,60%,90%)] transition duration-300 rounded-2xl"
               >
                 Subscribe
               </Button>

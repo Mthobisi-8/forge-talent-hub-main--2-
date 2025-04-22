@@ -389,7 +389,7 @@ const Contact: React.FC = () => {
                     height="300"
                     allowFullScreen
                     loading="lazy"
-                    className="rounded-lg shadow-lg"
+                    className="rounded-3xl shadow-lg"
                   />
                 </div>
               </div>

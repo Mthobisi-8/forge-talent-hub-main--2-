@@ -199,8 +199,11 @@ const Courses = () => {
 
 
           {/*Search and filters */}
-          <div className="container mx-auto px-4">
-            <div className="relative max-w-md mx-auto mb-8">
+          <div className="container mx-auto px-4 ">
+          <h1 className=" text-white text-4xl font-bold mb-20 text-gradient text-center italic ">
+                Explore Our Courses
+              </h1>
+            <div className="ml-0 relative max-w-md mx-auto mb-8">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
               <Input
                 type="search"
@@ -253,9 +256,7 @@ const Courses = () => {
 
             {/*Explore courses card*/ }
             <section className="mb-28">
-              <h1 className=" text-white text-4xl font-bold mb-10 text-gradient text-center italic">
-                Explore Our Courses
-              </h1>
+             
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
                 {filteredCourses.length > 0 ? (
                   filteredCourses.map((course, index) => (

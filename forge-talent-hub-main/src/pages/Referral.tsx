@@ -214,7 +214,7 @@ const Referral: React.FC = () => {
             ].map((service, index) => (
               <Card
                 key={index}
-                className="bg-gray-700 border-pink-500/40 service-card"
+                className="bg-gray-800 border-pink-500/40 service-card m-10"
                 style={cardStyle}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.1)";
@@ -229,7 +229,7 @@ const Referral: React.FC = () => {
                   <p style={tipStyle} className="text-sky-400">
                     {service.title}
                   </p>
-                  <p style={secondTextStyle} className="text-sky-300">
+                  <p style={secondTextStyle} className="text-sky-300 font-extrabold">
                     {service.description}
                   </p>
                 </CardContent>
@@ -245,7 +245,7 @@ const Referral: React.FC = () => {
           <h2 className="text-white text-4xl font-bold text-gradient mb-8 italic bg-gradient-to-r from-sky-400 to-pink-600 py-1">
             Build a Future-Ready Workforce with Forge Talent
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-bold">
             {[
               {
                 img: "/Corp2.jpg",
@@ -289,7 +289,7 @@ const Referral: React.FC = () => {
                   }}
                 >
                   <div
-                    className="cover"
+                    className="cover "
                     style={{
                       ...coverStyle,
                       transform: openCard === index ? "rotateY(-80deg)" : "rotateY(0deg)",
