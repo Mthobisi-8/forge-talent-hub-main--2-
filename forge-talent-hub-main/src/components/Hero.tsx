@@ -141,7 +141,7 @@ const Hero = () => {
         </div>
       </div>
 
-               {/* Discover More Section */}
+               {/* Discover More Section 
         <section className="py-16 relative">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           <div className="container mx-auto px-4 relative z-10">
@@ -185,7 +185,7 @@ const Hero = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section>*/}
       <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       <h1 className=" text-center text-3xl md:text-4xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-gray-200 py-4">
               Explore  ForgeTalent
