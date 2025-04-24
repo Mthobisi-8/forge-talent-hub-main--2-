@@ -132,7 +132,8 @@ const Courses = () => {
           {/*Courasel Rotation */}
           <section ref={courseListingsRef} className="">
             <div
-              className="w-screen h-[600px] flex items-center justify-center overflow-hidden"
+              className="w-screen h-[600px] flex items-center justify-center overflow-hidden
+              "
               style={{ position: "relative", textAlign: "center" }}
             >
               {filteredCourses.length > 0 && (
@@ -147,7 +148,7 @@ const Courses = () => {
                   {filteredCourses.map((course, index) => (
                     <div
                       key={index}
-                      className="absolute inset-0 border-2 border-pink-800 rounded-lg overflow-hidden"
+                      className="absolute inset-0 border-2 border-pink-800 rounded-2xl overflow-hidden "
                       style={{
                         transform: `rotateY(${(360 / quantity) * index}deg) translateZ(${translateZ})`,
                         width: "100%",
@@ -156,7 +157,7 @@ const Courses = () => {
                      // onMouseEnter={() => setIsHovered(index)}  // set hover state to the index of hovered card
                      // onMouseLeave={() => setIsHovered(null)}  // reset hover state
                     >
-                      <Card className="bg-gray-950 w-full h-full flex flex-col group hover:bg-gradient-to-r hover:from-gray-950 hover:via-sky-950 hover:to-purple-950 ">
+                      <Card className="bg-gray-900  flex flex-col group hover:bg-gradient-to-r hover:from-gray-950 hover:via-sky-950 hover:to-purple-950 rounded-2xl w-full h-[590px] ">
                         <CardHeader className="p-0">
                           <img
                             src={course.image}
@@ -169,7 +170,7 @@ const Courses = () => {
                           />
                         </CardHeader>
                         <div className="flex flex-col flex-grow p-2">
-                          <CardTitle className="text-sky-600 text-sm font-semibold mt-1 group-hover:text-white">
+                          <CardTitle className="text-sky-400 text-sm font-semibold mt-1 group-hover:text-white ">
                             {course.title}
                           </CardTitle>
                         </div>
