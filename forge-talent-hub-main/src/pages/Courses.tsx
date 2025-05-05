@@ -272,9 +272,15 @@ const Courses = () => {
                         {sub.title}
                       </button>
                       {expandedSubCourseIndex === idx && (
-                        <p className="mt-2 text-purple-400 text-xs"><span className="text-sky-700 text-lg">Description :</span>{sub.description} 
+                        <p className="mt-2 text-purple-200 font-semibold"><span className="text-sky-500 text-lg font-bold">Description : </span>{sub.description} 
                         <br/>
-                        <span className="text-sky-700">Price: </span>{sub.Cost}</p>
+                        <span className="text-sky-500 text-xl font-bold">Price : </span>{sub.Cost}
+                        <a href="https://www.forgeacademy.co.za/enroll-now" target="_blank" rel="noopener noreferrer" className="w-full block">
+                  <Button className="w-full bg-pink-900 text-lg py-5 rounded-xl mt-6 mb-4">
+                    Go to Enrollment
+                  </Button>
+                </a>
+                        </p>
                        
                       )}
                     </li>
@@ -283,13 +289,7 @@ const Courses = () => {
               ) : (
                 <p className="text-purple-300">No modules available.</p>
               )}
-              <div className="mt-auto pt-6">
-                <a href="https://www.forgeacademy.co.za/enroll-now" target="_blank" rel="noopener noreferrer" className="w-full block">
-                  <Button className="w-full bg-pink-900 text-lg py-5 rounded-xl">
-                    Go to Enrollment
-                  </Button>
-                </a>
-              </div>
+             
             </div>
           </div>
         </main>
