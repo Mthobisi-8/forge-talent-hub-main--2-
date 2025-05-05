@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/select";
 import { Slider as UISlider } from "@/components/ui/slider";
 import { Search } from "lucide-react";
+import clsx from "clsx";
+
 
 
 interface Course {
@@ -29,6 +31,7 @@ interface Course {
   format: string;
   price: string;
   image: string;
+  subCourses?: { title: string; description: string ;Cost: string;}[];
 }
 
 interface Testimonial {
@@ -43,66 +46,14 @@ const Courses = () => {
   const [selectedFormat, setSelectedFormat] = useState<string>("All");
   const [priceRange, setPriceRange] = useState<number[]>([20000]);
   const [priceFilterActive, setPriceFilterActive] = useState<boolean>(false);
-  const [isHovered, setIsHovered] = useState<number | null>(null);  // state for hovered card
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const [expandedSubCourseIndex, setExpandedSubCourseIndex] = useState<number | null>(null);
   const courseListingsRef = useRef<HTMLElementTagNameMap["section"] | null>(null);
+  const [isHovered, setIsHovered] = useState<number | null>(null);  // state for hovered card
 
-  const courses: Course[] = [
-    {
-      title: "AWS Certified Solutions Architect",
-      certification: "aws",
-      description: "Learn cloud computing and DevOps skills to advance your career",
-      duration: "3 months",
-      format: "Self-paced",
-      price: "5000",
-      image: "AWS_Banner.jpg",
-    },
-    {
-      title: "Digital Marketing Professional",
-      certification: "dmi",
-      description: "Master digital marketing strategies and tools",
-      duration: "4 months",
-      format: "Instructor-led",
-      price: "7500",
-      image: "Digital_Marketing.jpg",
-    },
-    {
-      title: "UX Design Fundamentals",
-      certification: "ux",
-      description: "Learn user experience design principles and practices",
-      duration: "2 months",
-      format: "Self-paced",
-      price: "4000",
-      image: "UX.jpg",
-    },
-    {
-      title: "CompTIA Security+",
-      certification: "comptia",
-      description: "Master cybersecurity fundamentals and best practices",
-      duration: "3 months",
-      format: "Self-paced",
-      price: "6000",
-      image: "Comptia_Banner.png",
-    },
-    {
-      title: "Full Stack Web Development",
-      certification: "aws",
-      description: "Build modern web applications from front to back",
-      duration: "6 months",
-      format: "Instructor-led",
-      price: "12000",
-      image: "Fullstack.png",
-    },
-    {
-      title: "Data Science Essentials",
-      certification: "dmi",
-      description: "Learn data analysis and machine learning fundamentals",
-      duration: "4 months",
-      format: "Self-paced",
-      price: "8000",
-      image: "Data_Science.jpg",
-    },
-  ];
-
+  
+  
+  
   const filteredCourses = courses.filter(
     (course) =>
       course.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -127,7 +78,8 @@ const Courses = () => {
 </div>
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow pt-24 pb-20">
+
+        <main className="flex-grow ">
 
           {/*Courasel Rotation */}
           <section ref={courseListingsRef} className="">
@@ -199,11 +151,14 @@ const Courses = () => {
           </section>
 
 
-          {/*Search and filters */}
-          <div className="container mx-auto px-4 ">
-          <h1 className=" text-white text-4xl font-bold mb-20 text-gradient text-center italic ">
-                Explore Our Courses
-              </h1>
+
+            {/*Explore courses card*/ }
+        <main className="flex-grow">
+          <div className="container mx-auto px-4">
+            <h1 className="text-white text-4xl font-bold mb-20 text-gradient text-center italic">
+              Explore Our Courses
+            </h1>
+
             <div className="ml-0 relative max-w-md mx-auto mb-8">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
               <Input
@@ -255,57 +210,31 @@ const Courses = () => {
               </div>
             </div>
 
-            {/*Explore courses card*/ }
             <section className="mb-28">
-             
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 {filteredCourses.length > 0 ? (
                   filteredCourses.map((course, index) => (
-                    <Card
-                      key={index}
-                      className="bg-gray-950 border-pink-800 shadow-xl shadow-pink-950 w-full h-[590px] flex flex-col group hover:bg-gradient-to-r hover:from-gray-950 hover:via-sky-950 hover:to-purple-950 hover:border-purple-800  rounded-2xl hover:shadow-purple-800"
-                    >
+                    <Card key={index} className="bg-gray-950 border-pink-800 shadow-xl w-full h-[540px] flex flex-col group hover:bg-gradient-to-r hover:from-gray-950 hover:via-sky-950 hover:to-purple-950 hover:border-purple-800 rounded-2xl hover:shadow-purple-800">
                       <CardHeader className="p-0">
-                        <img
-                          src={course.image}
-                          alt={course.title}
-                          className="w-full h-48 object-cover rounded-2xl"
-                        />
+                        <img src={course.image} alt={course.title} className="w-full h-48 object-cover rounded-2xl" />
                       </CardHeader>
                       <div className="flex flex-col flex-grow p-6">
                         <CardTitle className="text-sky-600 text-xl font-semibold mt-2 group-hover:text-white">
                           {course.title}
                         </CardTitle>
                         <CardContent className="p-0 mt-4 flex-grow">
-                          <p className="text-purple-300 text-base mb-4 group-hover:text-pink-500 transition-colors duration-300">
+                          <p className="text-purple-300 text-base mb-4 group-hover:text-pink-500">
                             {course.description}
                           </p>
-                          <div className="space-y-3 text-base text-purple-400 group-hover:text-sky-100 transition-colors duration-300">
-                            <p>
-                              <span className="font-semibold">Certification:</span> {course.certification.toUpperCase()}
-                            </p>
-                            <p>
-                              <span className="font-semibold">Duration:</span> {course.duration}
-                            </p>
-                            <p>
-                              <span className="font-semibold">Format:</span> {course.format}
-                            </p>
-                            <p>
-                              <span className="font-semibold">Price:</span> R{course.price}
-                            </p>
+                          <div className="space-y-3 text-base text-purple-400 group-hover:text-sky-100">
+                            <p><span className="font-semibold">Certification:</span> {course.certification.toUpperCase()}</p>
+                            <p><span className="font-semibold">Format:</span> {course.format}</p>
                           </div>
                         </CardContent>
-                        <CardFooter className="p-0  mt-3">
-                          <a
-                            href="https://www.forgeacademy.co.za/enroll-now"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full"
-                          >
-                            <Button className="w-full bg-purple-900 group-hover:bg-pink-900 text-lg py-6 rounded-2xl">
-                              Enroll Now
-                            </Button>
-                          </a>
+                        <CardFooter className="p-0 mt-4">
+                          <Button className="w-full bg-purple-900 group-hover:bg-pink-900 text-lg py-6 rounded-2xl" onClick={() => setSelectedCourse(course)}>
+                            View Modules
+                          </Button>
                         </CardFooter>
                       </div>
                     </Card>
@@ -317,7 +246,55 @@ const Courses = () => {
                 )}
               </div>
             </section>
+          </div>
 
+          <div className={clsx("fixed top-0 right-0 w-full max-w-md h-full bg-gray-900 group hover:bg-gradient-to-r hover:from-gray-950 hover:via-sky-950 hover:to-purple-950 border-l border-purple-800 shadow-2xl z-50 transition-transform duration-300 ease-in-out", selectedCourse ? "translate-x-0" : "translate-x-full")}>            
+            <div className="flex flex-col h-full p-6 overflow-y-auto">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl text-sky-400 font-bold">{selectedCourse?.title} Modules</h2>
+                <button className="text-purple-400 hover:text-pink-500 text-xl" onClick={() => {
+                  setSelectedCourse(null);
+                  setExpandedSubCourseIndex(null);
+                }}>
+                  ✕
+                </button>
+              </div>
+              {selectedCourse?.subCourses?.length ? (
+                <ul className="space-y-4">
+                  {selectedCourse.subCourses.map((sub, idx) => (
+                    <li key={idx} className="text-purple-300 border-b border-purple-700 pb-2">
+                      <button
+                        onClick={() =>
+                          setExpandedSubCourseIndex(expandedSubCourseIndex === idx ? null : idx)
+                        }
+                        className="text-left w-full text-purple-200 font-semibold hover:text-pink-500 text-xl"
+                      >
+                        {sub.title}
+                      </button>
+                      {expandedSubCourseIndex === idx && (
+                        <p className="mt-2 text-purple-400 text-xs"><span className="text-sky-700 text-lg">Description :</span>{sub.description} 
+                        <br/>
+                        <span className="text-sky-700">Price: </span>{sub.Cost}</p>
+                       
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-purple-300">No modules available.</p>
+              )}
+              <div className="mt-auto pt-6">
+                <a href="https://www.forgeacademy.co.za/enroll-now" target="_blank" rel="noopener noreferrer" className="w-full block">
+                  <Button className="w-full bg-pink-900 text-lg py-5 rounded-xl">
+                    Go to Enrollment
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </main>
+
+            {/*Testimonies*/ }
             <section className="py-16 relative">
               <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
               <div className="container mx-auto px-4 relative z-10">
@@ -342,8 +319,8 @@ const Courses = () => {
               </div>
             </section>
             
-          </div>
         </main>
+        
         <Footer />
       </div>
     </div>
@@ -366,6 +343,65 @@ const testimonials: Testimonial[] = [
     name: "Lerato N.",
     role: "Network Engineer",
   },
+];
+
+
+const courses: Course[] = [
+  {
+    title: "AWS Certified Solutions Architect",
+    certification: "aws",
+    description: "Learn cloud computing and DevOps skills to advance your career",
+    duration: "3 months",
+    format: "Self-paced",
+    price: "5000",
+    image: "AWS_Banner.jpg",
+    subCourses: [
+      { title: "EC2 & Load Balancing", description: "Deploy and manage scalable compute resources using EC2 and load balancers." ,Cost:"R 0.00" },
+      { title: "S3 & IAM", description: "Manage storage and user access using S3 and Identity Access Management." ,Cost:"R 0.00" },
+      { title: "VPC & Networking", description: "Design secure and scalable networks within AWS using VPC." ,Cost:"R 0.00"},
+      { title: "CloudFormation", description: "Automate your AWS infrastructure using CloudFormation templates." ,Cost:"R 0.00"},
+      { title: "Monitoring & Cost Optimization", description: "Track usage and optimize costs using AWS tools." ,Cost:"R 0.00"},
+    ],
+  },
+  {
+    title: "CompTIA Security+",
+    certification: "comptia",
+    description: "Master cybersecurity fundamentals and best practices",
+    duration: "3 months",
+    format: "Self-paced",
+    price: "6000",
+    image: "Comptia_Banner.png",
+    subCourses: [
+      { title: "Digital Literacy Pro", description: "Digital Literacy Pro is hosted on the online TestOut learning platform, LabSim. This provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations that are accessible in one place." ,Cost:"R 0.00"},
+      { title: "Tech+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. For those topics where you need more support, CertMaster Practice provides personalized remediation and feedback. Once you’re ready, you can demonstrate your knowledge on a timed practice test." ,Cost:"R 0.00" },
+      { title: "A+", description: "Strengthen your understanding, accelerate learning, and test your knowledge with CertMaster Practice for A+ Core 1, the ultimate final prep tool for exam day. This adaptive platform helps you close knowledge gaps, boost retention, and prepare for the CompTIA A+ (V15) Core 1 certification exam. It is designed for use 30–90 days before your exam and ensures you’re fully prepared." ,Cost:"R 0.00" },
+      { title: "Network+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00" },
+      { title: "Security+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. ",Cost:"R 0.00" },
+      { title: "Cloud+", description: "CertMaster Perform brings together narrative instructional content, videos, performance-based questions (PBQs), skills assessments, labs and more to offer a comprehensive learning experience to prepare you for your CompTIA certification exam and further your career in IT." ,Cost:"R 0.00"},
+      { title: "Linux+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00" },
+      { title: "Server+", description: "CertMaster Learn is a self-paced, comprehensive online learning experience that helps you gain the knowledge and practical skills necessary to be successful on your CompTIA certification exam, and in your IT career." ,Cost:"R 0.00"},
+     
+      { title: "Routing and Switching ", description: "Routing & Switching Pro is a high-quality, easy-to-use curriculum that will provide you with the training to use Cisco and other technology that allows modern networks to operate including IP services, security, automation, and programmability." ,Cost:"R 0.00"},
+      { title: "Client Pro", description: "Client Pro is a high-quality, easy-to-use curriculum that will provide you with the training needed to configure, manage, network, and support modern desktops and devices in an enterprise environment. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 0.00"},
+      { title: "Hybrid Server:Core", description: "Hybrid Server Pro: Core is a high-quality, easy-to-use curriculum where you will gain the knowledge and skills you need to configure and manage both on-premise and cloud based servers. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 0.00"},
+      { title: "Hybrid Server:Advanced ", description: "Hybrid Server Pro: Advanced is a high-quality, easy-to-use curriculum where you will gain the advanced knowledge and skills you need to configure and manage both on-premise and cloud based servers. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 0.00"},
+      { title: "CySA+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00"},
+      { title: "PenTest+", description: "CompTIA CertMaster Practice for PenTest+ PT0-003 is your online training companion and knowledge assessment tool designed to help you become a certified penetration tester. In the ever-evolving cybersecurity landscape, staying ahead of threats is vital. This dynamic tool enhances your knowledge and pinpoints learning gaps, equipping you with the skills to identify vulnerabilities and safeguard organizations from cyber threats." ,Cost:"R 0.00"},
+      { title: "CASP+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. " ,Cost:"R 0.00"},
+      { title: "SecurityX", description: "CompTIA CertMaster Practice for SecurityX CAS-005 is an online knowledge assessment and training companion tool specifically designed to prepare you for the SecurityX certification exam. In the dynamic world of cybersecurity, staying ahead of attacks and ensuring your skills are current is essential.",Cost:"R 0.00" },
+      { title: "CloudNetX", description: "CertMaster Perform brings together narrative instructional content, videos, performance-based questions (PBQs), skills assessments, live labs and more to offer a comprehensive learning experience to prepare candidates for their CompTIA certification exam and validate their expertise in cybersecurity" ,Cost:"R 0.00"},
+      { title: "Data+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn.",Cost:"R 0.00" },
+      { title: "Cloud Essential+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00"},
+      { title: "Project+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00"},
+      { title: "Microsoft", description: "TestOut Pro Certified: Microsoft Excel® is hosted on the online TestOut learning platform, LabSim. This provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations that are accessible in one place." ,Cost:"R 0.00"},
+      { title: "AI Essential", description: "CompTIA AI Essentials develops skills that enhance careers by providing competency in basic AI fundamentals, giving learners a competitive edge." ,Cost:"R 0.00" },
+      { title: "Business Essential", description: "CompTIA Business Essentials develops skills that enhance careers by providing competency in how businesses function and operate and financial literacy." ,Cost:"R 0.00"},
+      { title: "Soft Skills Essential ", description: "CompTIA Soft Skills Essentials develops skills that enhance careers by providing competency in critical interpersonal, communication, and collaboration skills." ,Cost:"R 0.00"},
+      { title: "Cloud Essentitails", description: "CompTIA Cloud Essentials develops skills that enhance careers by providing competency in basic cloud concepts, giving learners a competitive edge." ,Cost:"R 0.00"},
+      
+    ],
+  },
+
 ];
 
 export default Courses;
