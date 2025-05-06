@@ -31,7 +31,7 @@ interface Course {
   format: string;
   price: string;
   image: string;
-  subCourses?: { title: string; description: string ;Cost: string;}[];
+  subCourses?: { title: string; description: string ;Cost: string; NB: string ;}[];
 }
 
 interface Testimonial {
@@ -63,9 +63,9 @@ const Courses = () => {
   );
 
   const quantity = filteredCourses.length;
-  const translateZ = `calc((100px + 150px) + 0px)`;
-  const rotateX = "-15deg";
-  const perspective = "500px";
+  const translateZ = `calc((15px + 15px) + 0px)`;
+  const rotateX = "1deg";
+  const perspective = "100px";
 
   return (
     <div className="min-h-screen flex flex-col relative">
@@ -84,7 +84,7 @@ const Courses = () => {
           {/*Courasel Rotation */}
           <section ref={courseListingsRef} className="">
             <div
-              className="w-screen h-[600px] flex items-center justify-center overflow-hidden
+              className="w-screen h-[400px] flex items-center justify-center overflow-hidden mt-10
               "
               style={{ position: "relative", textAlign: "center" }}
             >
@@ -154,23 +154,26 @@ const Courses = () => {
 
             {/*Explore courses card*/ }
         <main className="flex-grow">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto ">
             <h1 className="text-white text-4xl font-bold mb-20 text-gradient text-center italic">
               Explore Our Courses
             </h1>
 
-            <div className="ml-0 relative max-w-md mx-auto mb-8">
+           
+
+            <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="ml-0 relative max-w-md  ">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
               <Input
                 type="search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Find your course"
-                className="pl-10 bg-black border-purple-500/30 text-purple-500 placeholder:text-purple-400 text-lg"
+                className="pl-10 bg-black border-purple-500/30 text-purple-500 placeholder:text-purple-400 text-lg py-6 "
               />
             </div>
-
-            <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+             
+             
               <Select onValueChange={setSelectedCertification} defaultValue="All">
                 <SelectTrigger className="border-purple-500/30 bg-black text-purple-500 text-lg py-6">
                   <SelectValue placeholder="Certification Type" />
@@ -178,7 +181,7 @@ const Courses = () => {
                 <SelectContent>
                   <SelectItem value="All">All</SelectItem>
                   <SelectItem value="aws">AWS</SelectItem>
-                  <SelectItem value="dmi">DMI</SelectItem>
+                  
                   <SelectItem value="ux">UX Design</SelectItem>
                   <SelectItem value="comptia">CompTIA</SelectItem>
                 </SelectContent>
@@ -195,6 +198,7 @@ const Courses = () => {
                 </SelectContent>
               </Select>
 
+              {/*
               <div className="space-y-2">
                 <label className="text-lg text-purple-200">Price Range: R{priceRange[0]}</label>
                 <UISlider
@@ -208,6 +212,7 @@ const Courses = () => {
                   className="py-4"
                 />
               </div>
+              */}
             </div>
 
             <section className="mb-28">
@@ -275,9 +280,11 @@ const Courses = () => {
                         <p className="mt-2 text-purple-200 font-semibold"><span className="text-sky-500 text-lg font-bold">Description : </span>{sub.description} 
                         <br/>
                         <span className="text-sky-500 text-xl font-bold">Price : </span>{sub.Cost}
-                        <a href="https://www.forgeacademy.co.za/enroll-now" target="_blank" rel="noopener noreferrer" className="w-full block">
-                  <Button className="w-full bg-pink-900 text-lg py-5 rounded-xl mt-6 mb-4">
-                    Go to Enrollment
+                        <br/>
+                        <span className=" text-sm text-red-500 font-bold animate-pulse">{sub.NB}</span>
+                        <a href="https://pay.yoco.com/forge-academy-pty-ltd" target="_blank" rel="noopener noreferrer" className="w-full block">
+                  <Button className="w-full bg-pink-900 text-lg py-5 rounded-xl mt-6 mb-4 italic font-serif8">
+                  Enroll
                   </Button>
                 </a>
                         </p>
@@ -348,58 +355,66 @@ const testimonials: Testimonial[] = [
 
 const courses: Course[] = [
   {
-    title: "AWS Certified Solutions Architect",
+    title: "Amazon Web Services",
     certification: "aws",
     description: "Learn cloud computing and DevOps skills to advance your career",
     duration: "3 months",
-    format: "Self-paced",
+    format: "Instructor-led",
     price: "5000",
     image: "AWS_Banner.jpg",
     subCourses: [
-      { title: "EC2 & Load Balancing", description: "Deploy and manage scalable compute resources using EC2 and load balancers." ,Cost:"R 0.00" },
-      { title: "S3 & IAM", description: "Manage storage and user access using S3 and Identity Access Management." ,Cost:"R 0.00" },
-      { title: "VPC & Networking", description: "Design secure and scalable networks within AWS using VPC." ,Cost:"R 0.00"},
-      { title: "CloudFormation", description: "Automate your AWS infrastructure using CloudFormation templates." ,Cost:"R 0.00"},
-      { title: "Monitoring & Cost Optimization", description: "Track usage and optimize costs using AWS tools." ,Cost:"R 0.00"},
-    ],
+      { title: "AWS Cloud Practitioner", description: "Cloud computing is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, on an as-needed basis from a cloud provider like Amazon Web Services (AWS)." ,Cost:"R 1 825.11" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      ],
   },
   {
-    title: "CompTIA Security+",
+    title: "CompTIA ",
     certification: "comptia",
     description: "Master cybersecurity fundamentals and best practices",
-    duration: "3 months",
+    duration: "12 months",
     format: "Self-paced",
     price: "6000",
     image: "Comptia_Banner.png",
     subCourses: [
-      { title: "Digital Literacy Pro", description: "Digital Literacy Pro is hosted on the online TestOut learning platform, LabSim. This provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations that are accessible in one place." ,Cost:"R 0.00"},
-      { title: "Tech+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. For those topics where you need more support, CertMaster Practice provides personalized remediation and feedback. Once you’re ready, you can demonstrate your knowledge on a timed practice test." ,Cost:"R 0.00" },
-      { title: "A+", description: "Strengthen your understanding, accelerate learning, and test your knowledge with CertMaster Practice for A+ Core 1, the ultimate final prep tool for exam day. This adaptive platform helps you close knowledge gaps, boost retention, and prepare for the CompTIA A+ (V15) Core 1 certification exam. It is designed for use 30–90 days before your exam and ensures you’re fully prepared." ,Cost:"R 0.00" },
-      { title: "Network+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00" },
-      { title: "Security+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. ",Cost:"R 0.00" },
-      { title: "Cloud+", description: "CertMaster Perform brings together narrative instructional content, videos, performance-based questions (PBQs), skills assessments, labs and more to offer a comprehensive learning experience to prepare you for your CompTIA certification exam and further your career in IT." ,Cost:"R 0.00"},
-      { title: "Linux+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00" },
-      { title: "Server+", description: "CertMaster Learn is a self-paced, comprehensive online learning experience that helps you gain the knowledge and practical skills necessary to be successful on your CompTIA certification exam, and in your IT career." ,Cost:"R 0.00"},
+      { title: "Digital Literacy Pro", description: "Digital Literacy Pro is hosted on the online TestOut learning platform, LabSim. This provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations that are accessible in one place." ,Cost:"R 1224.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"} ,
+      { title: "Tech+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. For those topics where you need more support, CertMaster Practice provides personalized remediation and feedback. Once you’re ready, you can demonstrate your knowledge on a timed practice test." ,Cost:"R 1218.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "A+", description: "Strengthen your understanding, accelerate learning, and test your knowledge with CertMaster Practice for A+ Core 1, the ultimate final prep tool for exam day. This adaptive platform helps you close knowledge gaps, boost retention, and prepare for the CompTIA A+ (V15) Core 1 certification exam. It is designed for use 30–90 days before your exam and ensures you’re fully prepared." ,Cost:"R 2706.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS" },
+      { title: "Network+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 1542.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Security+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. ",Cost:"R 1623.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Cloud+", description: "CertMaster Perform brings together narrative instructional content, videos, performance-based questions (PBQs), skills assessments, labs and more to offer a comprehensive learning experience to prepare you for your CompTIA certification exam and further your career in IT." ,Cost:"R 5465.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Linux+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 1542.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Server+", description: "CertMaster Learn is a self-paced, comprehensive online learning experience that helps you gain the knowledge and practical skills necessary to be successful on your CompTIA certification exam, and in your IT career." ,Cost:"R 3907.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
      
-      { title: "Routing and Switching ", description: "Routing & Switching Pro is a high-quality, easy-to-use curriculum that will provide you with the training to use Cisco and other technology that allows modern networks to operate including IP services, security, automation, and programmability." ,Cost:"R 0.00"},
-      { title: "Client Pro", description: "Client Pro is a high-quality, easy-to-use curriculum that will provide you with the training needed to configure, manage, network, and support modern desktops and devices in an enterprise environment. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 0.00"},
-      { title: "Hybrid Server:Core", description: "Hybrid Server Pro: Core is a high-quality, easy-to-use curriculum where you will gain the knowledge and skills you need to configure and manage both on-premise and cloud based servers. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 0.00"},
-      { title: "Hybrid Server:Advanced ", description: "Hybrid Server Pro: Advanced is a high-quality, easy-to-use curriculum where you will gain the advanced knowledge and skills you need to configure and manage both on-premise and cloud based servers. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 0.00"},
-      { title: "CySA+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00"},
-      { title: "PenTest+", description: "CompTIA CertMaster Practice for PenTest+ PT0-003 is your online training companion and knowledge assessment tool designed to help you become a certified penetration tester. In the ever-evolving cybersecurity landscape, staying ahead of threats is vital. This dynamic tool enhances your knowledge and pinpoints learning gaps, equipping you with the skills to identify vulnerabilities and safeguard organizations from cyber threats." ,Cost:"R 0.00"},
-      { title: "CASP+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. " ,Cost:"R 0.00"},
-      { title: "SecurityX", description: "CompTIA CertMaster Practice for SecurityX CAS-005 is an online knowledge assessment and training companion tool specifically designed to prepare you for the SecurityX certification exam. In the dynamic world of cybersecurity, staying ahead of attacks and ensuring your skills are current is essential.",Cost:"R 0.00" },
-      { title: "CloudNetX", description: "CertMaster Perform brings together narrative instructional content, videos, performance-based questions (PBQs), skills assessments, live labs and more to offer a comprehensive learning experience to prepare candidates for their CompTIA certification exam and validate their expertise in cybersecurity" ,Cost:"R 0.00"},
-      { title: "Data+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn.",Cost:"R 0.00" },
-      { title: "Cloud Essential+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00"},
-      { title: "Project+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 0.00"},
-      { title: "Microsoft", description: "TestOut Pro Certified: Microsoft Excel® is hosted on the online TestOut learning platform, LabSim. This provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations that are accessible in one place." ,Cost:"R 0.00"},
-      { title: "AI Essential", description: "CompTIA AI Essentials develops skills that enhance careers by providing competency in basic AI fundamentals, giving learners a competitive edge." ,Cost:"R 0.00" },
-      { title: "Business Essential", description: "CompTIA Business Essentials develops skills that enhance careers by providing competency in how businesses function and operate and financial literacy." ,Cost:"R 0.00"},
-      { title: "Soft Skills Essential ", description: "CompTIA Soft Skills Essentials develops skills that enhance careers by providing competency in critical interpersonal, communication, and collaboration skills." ,Cost:"R 0.00"},
-      { title: "Cloud Essentitails", description: "CompTIA Cloud Essentials develops skills that enhance careers by providing competency in basic cloud concepts, giving learners a competitive edge." ,Cost:"R 0.00"},
+      { title: "Routing and Switching ", description: "Routing & Switching Pro is a high-quality, easy-to-use curriculum that will provide you with the training to use Cisco and other technology that allows modern networks to operate including IP services, security, automation, and programmability." ,Cost:"R 1532.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Client Pro", description: "Client Pro is a high-quality, easy-to-use curriculum that will provide you with the training needed to configure, manage, network, and support modern desktops and devices in an enterprise environment. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 1532.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Hybrid Server:Core", description: "Hybrid Server Pro: Core is a high-quality, easy-to-use curriculum where you will gain the knowledge and skills you need to configure and manage both on-premise and cloud based servers. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 1532.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Hybrid Server:Advanced ", description: "Hybrid Server Pro: Advanced is a high-quality, easy-to-use curriculum where you will gain the advanced knowledge and skills you need to configure and manage both on-premise and cloud based servers. Hosted on the online TestOut learning platform, LabSim, it provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations." ,Cost:"R 1532.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "CySA+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 1623.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "PenTest+", description: "CompTIA CertMaster Practice for PenTest+ PT0-003 is your online training companion and knowledge assessment tool designed to help you become a certified penetration tester. In the ever-evolving cybersecurity landscape, staying ahead of threats is vital. This dynamic tool enhances your knowledge and pinpoints learning gaps, equipping you with the skills to identify vulnerabilities and safeguard organizations from cyber threats." ,Cost:"R 3909.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "CASP+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn. " ,Cost:"R 2113.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "SecurityX", description: "CompTIA CertMaster Practice for SecurityX CAS-005 is an online knowledge assessment and training companion tool specifically designed to prepare you for the SecurityX certification exam. In the dynamic world of cybersecurity, staying ahead of attacks and ensuring your skills are current is essential.",Cost:"R 4844.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "CloudNetX", description: "CertMaster Perform brings together narrative instructional content, videos, performance-based questions (PBQs), skills assessments, live labs and more to offer a comprehensive learning experience to prepare candidates for their CompTIA certification exam and validate their expertise in cybersecurity" ,Cost:"R 16 814.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Data+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn.",Cost:"R 1053.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS" },
+      { title: "Cloud Essential+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 1542.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Project+", description: "CompTIA CertMaster Practice is an online knowledge assessment and training companion tool to help you prepare for your CompTIA certification exam. Featuring an adaptive question-first design, CertMaster Practice quickly assesses what you already know and what you still need to learn." ,Cost:"R 7384.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Microsoft", description: "TestOut Pro Certified: Microsoft Excel® is hosted on the online TestOut learning platform, LabSim. This provides a comprehensive experience for gaining knowledge and practical skills through interactive learning modules like video lessons and lab simulations that are accessible in one place." ,Cost:"R 563.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "AI Essential", description: "CompTIA AI Essentials develops skills that enhance careers by providing competency in basic AI fundamentals, giving learners a competitive edge." ,Cost:"R 1542.00",NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS" },
+      { title: "Business Essential", description: "CompTIA Business Essentials develops skills that enhance careers by providing competency in how businesses function and operate and financial literacy." ,Cost:"R 1224.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Soft Skills Essential ", description: "CompTIA Soft Skills Essentials develops skills that enhance careers by providing competency in critical interpersonal, communication, and collaboration skills." ,Cost:"R 2413.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "Cloud Essentitails", description: "CompTIA Cloud Essentials develops skills that enhance careers by providing competency in basic cloud concepts, giving learners a competitive edge." ,Cost:"R 1798.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
       
     ],
+  },
+  {
+    title: "UX Design",
+    certification: "ux",
+    description: "Learn more about developing the user interface and intergrating the user designs",
+    duration: "6 months",
+    format: "Instructor-led",
+    price: "5000",
+    image: "UX.jpg",
+    subCourses: [
+      { title: "AWS Cloud Practitioner", description: "Cloud computing is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, on an as-needed basis from a cloud provider like Amazon Web Services (AWS)." ,Cost:"R 0.00" ,NB:"PLEASE USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      ],
   },
 
 ];

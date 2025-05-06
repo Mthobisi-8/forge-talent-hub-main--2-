@@ -23,9 +23,9 @@ const Recruit = () => {
       location: "Remote",
     },
     {
-      title: "Cyber Security",
+      title: "Comptia Instructor",
       description: "Bachelor’s degree in Computer Science, Information Security, or related field. Understanding of security principles, firewalls, and encryption techniques. Knowledge of security assessment tools like Wireshark, Nmap, or Metasploit. Experience in ethical hacking and penetration testing is a plus.",
-      experience: "Learnership",
+      experience: "Apprentice",
       category: "Cybersecurity",
       location: "Hybrid",
     },
@@ -36,13 +36,7 @@ const Recruit = () => {
       category: "UI/UX Design",
       location: "Onsite",
     },
-    {
-      title: "Data Science",
-      description: "Bachelor’s degree in Data Science, Statistics, or related field. Proficiency in Python, R, and SQL. Experience with machine learning libraries such as TensorFlow, Scikit-Learn, or PyTorch. Strong analytical and problem-solving skills.",
-      experience: "Entry-Level",
-      category: "Data Science",
-      location: "Remote",
-    },
+
     {
       title: "IT Support",
       description: "Matric, A+ certification required. Advantageous certifications: MD-100, MD-101, or N+. Experience with troubleshooting hardware and software issues. Strong communication and customer support skills.",
@@ -50,20 +44,7 @@ const Recruit = () => {
       category: "IT Support",
       location: "Hybrid",
     },
-    {
-      title: "Networking",
-      description: "A+, N+, or equivalent technical qualification required. Experience with network troubleshooting and configuration. Knowledge of Cisco, Juniper, or other network equipment is a plus.",
-      experience: "Entry Level",
-      category: "Networking",
-      location: "Onsite",
-    },
-    {
-      title: "Business Analyst",
-      description: "Degree in Informatics, Business, or related field. Experience in gathering and analyzing business requirements. Familiarity with Agile and Scrum methodologies. Ability to work closely with development teams to ensure project success.",
-      experience: "Entry-Level",
-      category: "Business Analyst",
-      location: "Remote",
-    },
+
     {
       title: "Cloud Computing",
       description: "Minimum of a Higher Certificate / Occupational Certificate Level 5 (NQF Level 5) in A+/N+. Experience with cloud platforms such as AWS, Azure, or Google Cloud. Understanding of virtualization and containerization technologies.",
