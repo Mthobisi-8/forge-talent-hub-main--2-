@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
       phone_number: formData.number,
       subject: formData.subject,
       message: formData.message,
-      to_email: "Mthobisi.M@forgeacademy.co.za",
+      to_email: "Nthabiseng.M@forgeacademy.co.za",
     };
 
     try {
