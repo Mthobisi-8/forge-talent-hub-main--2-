@@ -355,7 +355,7 @@ const testimonials: Testimonial[] = [
 
 const courses: Course[] = [
   {
-    title: "Amazon Web Services",
+    title: "AWS",
     certification: "aws",
     description: "Learn cloud computing and DevOps skills to advance your career",
     duration: "3 months",
