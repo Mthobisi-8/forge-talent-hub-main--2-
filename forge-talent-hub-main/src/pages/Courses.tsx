@@ -313,7 +313,7 @@ const Courses = () => {
                   {testimonials.map((testimonial, index) => (
                     <Card
                       key={index}
-                      className="bg-gradient-to-b from-gray-700 to-black   border-gray-700 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-transform duration-300 group hover:scale-105 animate-fade-in"
+                      className="hover:bg-gray-500 bg-gradient-to-b from-gray-700 to-black   border-gray-700 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-transform duration-300 group hover:scale-105 animate-fade-in"
                       style={{ animationDelay: `${index * 200}ms` }}
                     >
                       <CardContent className="p-6 text-center">
