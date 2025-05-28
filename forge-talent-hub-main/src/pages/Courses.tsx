@@ -38,6 +38,7 @@ interface Testimonial {
   text: string;
   name: string;
   role: string;
+  image:string;
 }
 
 const Courses = () => {
@@ -109,12 +110,12 @@ const Courses = () => {
                      // onMouseEnter={() => setIsHovered(index)}  // set hover state to the index of hovered card
                      // onMouseLeave={() => setIsHovered(null)}  // reset hover state
                     >
-                      <Card className="bg-gradient-to-b from-gray-700 to-black flex flex-col group hover:bg-gradient-to-r hover:from-gray-950 hover:via-sky-950 hover:to-purple-950 rounded-2xl w-full h-[600px] ">
+                      <Card className="bg-gradient-to-b from-black to-gray-50 flex flex-col group hover:bg-gradient-to-r hover:from-gray-950 hover:via-sky-950 hover:to-purple-950 rounded-2xl w-full h-[600px] ">
                         <CardHeader className="p-0">
                           <img
                             src={course.image}
                             alt={course.title}
-                            className="w-full h-full object-cover bg-gradient-to-b from-black to-gray-00"
+                            className="w-full h-full object-cover bg-transparent  mt-8"
                             style={{
                               background:
                                 "",
@@ -123,7 +124,7 @@ const Courses = () => {
                         </CardHeader>
                         <div className="flex flex-col flex-grow p-1">
                           <CardTitle className="font-serif text-sm font-semibold mt-1 group-hover:text-white ">
-                            {course.title}
+                           
                           </CardTitle>
                         </div>
                       </Card>
@@ -312,12 +313,17 @@ const Courses = () => {
                   {testimonials.map((testimonial, index) => (
                     <Card
                       key={index}
-                      className="bg-[hsl(270,50%,15%)] border-pink-950 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-transform duration-300 group hover:scale-105 animate-fade-in"
+                      className="bg-gradient-to-b from-gray-700 to-black   border-gray-700 backdrop-blur-sm shadow-lg shadow-[hsl(270,70%,30%)]/50 rounded-2xl transition-transform duration-300 group hover:scale-105 animate-fade-in"
                       style={{ animationDelay: `${index * 200}ms` }}
                     >
                       <CardContent className="p-6 text-center">
-                        <p className="text-[hsl(190,60%,90%)] mb-4 italic  hover:text-sky-600">"{testimonial.text}"</p>
-                        <p className="text-pink-500 font-semibold">{testimonial.name}</p>
+                        <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-60 h-30 mx-auto rounded-full rounded-4xl mb-4 object-cover"
+                      />
+                        <p className="text-[hsl(190,60%,90%)] mb-4 italic group-hover:text-sky-600">"{testimonial.text}"</p>
+                        <p className="text-pink-400 font-semibold">{testimonial.name}</p>
                         <p className="text-[hsl(190,60%,90%)] text-sm">{testimonial.role}</p>
                       </CardContent>
                     </Card>
@@ -336,19 +342,22 @@ const Courses = () => {
 
 const testimonials: Testimonial[] = [
   {
-    text: "Forge Talent helped me transition into a tech career with their amazing courses and support!",
-    name: "Thandi M.",
-    role: "Software Developer",
+    text: "As a certified Cloud Practitioner from Forge Academy and Labs, I gained a solid foundation in cloud computing, including architecture, service models, and security. The hands-on training helped me apply these skills in real-world scenarios, boosting my confidence and technical ability. This certification has sparked my interest in pursuing a career as a Network Engineer or Data Analyst. I now understand how cloud technology supports both fields—from building secure networks to analyzing data efficiently. Forge Academy provided a practical and supportive learning environment. It was the perfect starting point for my tech journey. I highly recommend it to anyone looking to enter the industry.",
+    name: "Sandziso Mdluli.",
+    role: "Cloud Learnership Graduate",
+    image: "Sandziso.jpeg",
   },
   {
-    text: "The AI talent survey gave me clarity on my career path, and I landed my dream job!",
-    name: "Sipho K.",
-    role: "Data Analyst",
+    text: "Being part of the Cloud Learnership at Forge Academy has been a truly transformative experience. From day one, I was immersed in a dynamic and supportive learning environment that not only deepened my technical knowledge but also encouraged professional growth. The structured curriculum, hands-on labs, and guidance from experienced mentors made complex cloud concepts both accessible and exciting.Through this learnership, I had the opportunity to earn my AWS Certified Cloud Practitioner certificate—a milestone I am incredibly proud of. This certification has equipped me with a solid understanding of cloud computing fundamentals, security best practices, pricing models, and AWS services that are critical in today's IT landscape.",
+    name: "Sinqobile Madlopha.",
+    role: "Cloud Learnership Graduate",
+    image: "Sinqobile.jpeg",
   },
   {
-    text: "Their training programs are top-notch, and the certifications opened so many doors for me.",
-    name: "Lerato N.",
-    role: "Network Engineer",
+    text: "As a certified Cloud Practitioner through Forge Academy, I bring a solid foundation in cloud computing fundamentals including cloud services, architecture principles, and security frameworks. My certification has equipped me with proficiency in IaaS, PaaS, SaaS service types, deployment models, and cost optimization strategies.I am passionate about pursuing cloud engineering and cloud security engineering roles where I can apply my foundational knowledge while continuing to specialize. With strong analytical thinking and a commitment to continuous learning, I am seeking opportunities to contribute to organizations that value cloud innovation and security excellence.",
+    name: "Tumelo Sebashe",
+    role: "Cloud Learnership Graduate",
+    image: "Stumza.jpeg",
   },
 ];
 
