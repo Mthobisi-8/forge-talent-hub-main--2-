@@ -41,15 +41,31 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-24 ">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between ">
           {/* Left Section: Text & Buttons */}
-          <div className="text-center md:text-left md:w-1/2">
-            <h1 className="text-5xl md:text-7xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
+          <section className="text-center md:text-left md:w-1/2">
+             <div >
+            <h1 className="text-5xl md:text-7xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-200">
               Inspire Careers
             </h1>
 
             <p className="text-2xl  mt-6 italic py-6">
               "Unlock your potential. Shape your future."
             </p>
+            
+          <div className=" flex flex-col md:flex-row md:gap-32">
+          {/* Corporate button  */}
+          <Button asChild className="bg-gradient-to-r from-purple-500 via-gray-200 to-purple-400 text-gray-800 hover:text-lg hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10">
+          <Link to="/Referral">CORPORATE</Link>
+          </Button>
+
+          {/* Upskill button  */}
+          <Button asChild className="bg-gradient-to-r from-purple-500 via-gray-200 text-gray-800 hover:text-lg  hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10">
+          <Link to="/Courses">UPSKILL</Link>
+          </Button>
+</div>
+
           </div>
+          </section>
+         
 
           {/* Right Section: Image */}
           <div className="w-full md:w-[500px] lg:w-[600px] xl:w-[700px] mx-auto mt-16 rounded-3xl overflow-hidden ">
@@ -99,7 +115,7 @@ const Hero = () => {
             {
               title: "Tailored Solutions",
               content:
-                "We offer customized recruitment solutions to match your specific needs, whether you're looking for job opportunities or hiring for your company.",
+                "We offer customised recruitment solutions to match your specific needs, whether you're looking for job opportunities or hiring for your company.",
             },
             
             

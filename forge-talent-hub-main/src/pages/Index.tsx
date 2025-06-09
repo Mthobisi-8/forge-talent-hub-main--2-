@@ -29,11 +29,10 @@ const Index: React.FC = () => {
             <div className="container mx-auto px-4">
               <div className="text-center mb-8 cssanimation leFadeIn">
                 <h2 className="text-3xl font-bold mb-4 text-gradient text-white">
-                  <span className="text-pink-400 font-extrabold bounce-custom delay-a">A</span>
-                  <span className="text-pink-700 font-extrabold bounce-custom delay-i">I</span> Talent Assessment
+                 <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-pink-700  to-gray-200">Forge </span>  Talent Assessment
                 </h2>
                 <p className="text-lg from-sky-200 to-gray-200">
-                  Take our AI-powered survey to discover the perfect course for your career goals
+                  Take our FORGE-powered survey to discover the perfect course for your career goals
                 </p>
               </div>
               <TalentSurvey />

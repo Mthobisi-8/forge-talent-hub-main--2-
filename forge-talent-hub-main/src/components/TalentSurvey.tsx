@@ -155,7 +155,7 @@ const TalentSurvey = () => {
   return (
     <Card className="w-full max-w-2xl mx-auto mt-8 border-2 border-pink-950 rounded-t rounded-2xl text-2xl">
       <CardHeader>
-        <CardTitle className="text-sky-200 ">AI Talent Survey</CardTitle>
+        <CardTitle className="text-sky-200 ">Forge Talent Survey</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">

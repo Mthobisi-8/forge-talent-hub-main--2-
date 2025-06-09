@@ -27,7 +27,7 @@ const About = () => {
                 Forge Talent: Your Path to Tech Success
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-sky-50 max-w-xl mx-auto mb-8">
-                Empowering South Africa’s youth with AI-powered career development and ICT opportunities.
+                Empowering South Africa’s youth with career development and ICT opportunities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
@@ -55,7 +55,7 @@ const About = () => {
                     Bridging the Gap Between Aspiration and Qualification
                   </h2>
                   <p className="text-base sm:text-lg text-white">
-                    Forge Talent is an AI-powered career development platform designed to help job seekers gain the skills and certifications they need to succeed. Our mission is to make high-quality education accessible, affordable, and convenient for everyone.
+                    Forge Talent is a career development platform designed to help job seekers gain the skills and certifications they need to succeed. Our mission is to make high-quality education accessible, affordable, and convenient for everyone.
                   </p>
 
                   <div className="mt-6 space-y-4">
@@ -79,6 +79,9 @@ const About = () => {
                     <p className="bg-gradient-to-r from-purple-400 to-pink-600 text-gray-200 bg-clip-text font-extrabold italic">
                       Contact us today to explore opportunities!
                     </p>
+                       <Button asChild className="bg-purple-600 hover:bg-sky-700 rounded-xl font-bold">
+                          <Link to="/contact">Contact Us</Link>
+                        </Button>  
                   </div>
                 </div>
 
@@ -151,11 +154,11 @@ const About = () => {
 // Steps
 const steps = [
   {
-    title: "Take the AI Talent Survey",
+    title: "Take the FORGE  Talent Survey",
     description: "Answer a few questions to identify your strengths and career goals.",
   },
   {
-    title: "Get Personalized Recommendations",
+    title: "Get Personalised Recommendations",
     description: "Receive tailored course suggestions based on your survey results.",
   },
   {
@@ -164,7 +167,7 @@ const steps = [
   },
   {
     title: "Earn Certifications",
-    description: "Gain industry-recognized certifications and take the next step in your career.",
+    description: "Gain industry-recognised certifications and take the next step in your career.",
   },
 ];
 

@@ -191,7 +191,7 @@ const Referral: React.FC = () => {
                 icon: <GraduationCap className="text-4xl text-purple-400 mx-auto" />,
                 title: "Squad Training",
                 description:
-                  "Improve the proficiency of your global tech workforce with internationally recognized training programs.",
+                  "Improve the proficiency of your global tech workforce with internationally recognised training programs.",
               },
               {
                 icon: <HeartHandshake className="text-4xl text-purple-400 mx-auto" />,
@@ -203,7 +203,7 @@ const Referral: React.FC = () => {
                 icon: <BookPlus className="text-4xl text-purple-400 mx-auto" />,
                 title: "Accredited Skill Development Programs",
                 description:
-                  "Gain B-BBEE points, tax benefits, and access to SETA subsidies with our customizable training solutions.",
+                  "Gain B-BBEE points, tax benefits, and access to SETA subsidies with our customisable training solutions.",
               },
               {
                 icon: <Table2 className="text-4xl text-purple-400 mx-auto" />,
