@@ -51,14 +51,14 @@ const Hero = () => {
               "Unlock your potential. Shape your future."
             </p>
             
-          <div className=" flex flex-col md:flex-row md:gap-32">
+          <div className=" flex flex-col md:flex-row md:gap-6 md:ml-20 sm:ml-36">
           {/* Corporate button  */}
-          <Button asChild className="bg-gradient-to-r from-purple-500 via-gray-200 to-purple-400 text-gray-800 hover:text-lg hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10">
+          <Button asChild className="bg-gradient-to-r from-purple-700 via-gray-200 to-purple-700 text-gray-950 hover:text-lg hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10 w-32">
           <Link to="/Referral">CORPORATE</Link>
           </Button>
 
           {/* Upskill button  */}
-          <Button asChild className="bg-gradient-to-r from-purple-500 via-gray-200 text-gray-800 hover:text-lg  hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10">
+          <Button asChild className="bg-gradient-to-r from-sky-700 via-gray-200 to-sky-700 text-gray-950 hover:text-lg  hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10 w-32">
           <Link to="/Courses">UPSKILL</Link>
           </Button>
 </div>
@@ -115,7 +115,7 @@ const Hero = () => {
             {
               title: "Tailored Solutions",
               content:
-                "We offer customised recruitment solutions to match your specific needs, whether you're looking for job opportunities or hiring for your company.",
+                "We offer customised recruitment solutions to match your specific needs, whether you are looking for job opportunities or hiring for your company.",
             },
             
             
