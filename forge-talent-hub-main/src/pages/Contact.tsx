@@ -368,7 +368,7 @@ const Contact: React.FC = () => {
 
             {/* Contact Information */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gradient text-gray-200 italic">We're Here to Help</h2>
+              <h2 className="text-3xl font-bold text-gradient text-gray-200 italic">We are Here to Help</h2>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-sky-200">
                   <Mail className="h-5 w-5 text-sky-400" />
