@@ -34,7 +34,7 @@ const Index: React.FC = () => {
 
       {/* Pop-up Bubble */}
       {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm sm:items-center">
           <div className="inset-0 z-[-1] vr-background rounded-2xl p-8 max-w-md w-full mx-4 shadow-lg transform transition-all duration-300 scale-100 hover:scale-105 relative">
             <button
               className="absolute top-1 right-2 text-black hover:text-red-700 text-2xl font-extrabold"
@@ -46,7 +46,7 @@ const Index: React.FC = () => {
             <h3 className="text-2xl font-bold text-center text-white mb-4">
               Are you looking to get hired or to enroll in a course?
             </h3>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-center">
               <Link
                 to="/Recruit"
                 className="w-36 bg-gradient-to-r from-sky-700 via-gray-200 to-sky-500 text-gray-950 hover:text-lg hover:text-black rounded-3xl font-bold py-2 px-6 text-center transition-all"
