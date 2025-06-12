@@ -13,12 +13,13 @@ const Index: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
 
 useEffect(() => {
-  const popupSeen = sessionStorage.getItem("hasSeenPopup");
-  sessionStorage.clear();
-  if (popupSeen) {
-    sessionStorage.setItem("hasSeenPopup", popupSeen);
+  const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
+  if (!hasSeenPopup) {
+    setShowPopup(true);
+    sessionStorage.setItem('hasSeenPopup', 'true');
   }
 }, []);
+
 
 
 
