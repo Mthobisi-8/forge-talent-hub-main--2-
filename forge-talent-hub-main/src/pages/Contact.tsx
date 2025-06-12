@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import emailjs from "emailjs-com";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -115,6 +115,10 @@ const Contact: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+    useEffect(() => {
+    // Clear session storage to restart session-specific data
+    sessionStorage.clear();
+  }, []);
   return (
     <div className="min-h-screen flex flex-col ">
       {/* Background Layer */}

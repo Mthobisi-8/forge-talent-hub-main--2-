@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Users } from "lucide-react";
+import { useEffect } from "react";
 
 const Pricing = () => {
   const plans = [
@@ -39,6 +40,10 @@ const Pricing = () => {
     },
   ];
 
+    useEffect(() => {
+    // Clear session storage to restart session-specific data
+    sessionStorage.clear();
+  }, []);
   return (
     <div className="min-h-screen flex flex-col bg-black">
       <Header />

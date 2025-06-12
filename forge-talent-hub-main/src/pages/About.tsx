@@ -3,8 +3,12 @@ import Footer from "@/components/Footer";
 import Features from "@/components/Features";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const About = () => {
+    useEffect(() => {
+    sessionStorage.clear();
+  }, []);
   return (
     <div className="min-h-screen flex flex-col relative overflow-x-hidden">
       {/* Background Layer */}

@@ -108,6 +108,12 @@ const Referral: React.FC = () => {
     setOpenCard(openCard === index ? null : index);
   };
 
+    useEffect(() => {
+    // Clear session storage to restart session-specific data
+    sessionStorage.clear();
+  }, []);
+
+  
   return (
     <>
       <div className="fixed inset-0 z-[-1] vr-background">

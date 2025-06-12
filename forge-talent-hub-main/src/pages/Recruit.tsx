@@ -79,6 +79,11 @@ const Recruit = () => {
     }
   }, [selectedJob]);
 
+    useEffect(() => {
+    // Clear session storage to restart session-specific data
+    sessionStorage.clear();
+  }, []);
+  
   return (
     <div className="min-h-screen flex flex-col animate-glow">
         <div className="fixed inset-0 z-[-1] vr-background">

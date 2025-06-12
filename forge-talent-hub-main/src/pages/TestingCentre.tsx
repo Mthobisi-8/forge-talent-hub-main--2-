@@ -2,8 +2,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TalentSurvey from "@/components/TalentSurvey";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 const TestingCentre = () => {
+    useEffect(() => {
+    // Clear session storage to restart session-specific data
+    sessionStorage.clear();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col ">
         <div className="fixed inset-0 z-[-1] vr-background">

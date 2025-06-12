@@ -68,6 +68,10 @@ const Courses = () => {
   const rotateX = "1deg";
   const perspective = "100px";
 
+    useEffect(() => {
+    // Clear session storage to restart session-specific data
+    sessionStorage.clear();
+  }, []);
   return (
     <div className="min-h-screen flex flex-col relative">
       {/* Background Layer */}

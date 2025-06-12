@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,6 +49,11 @@ export default function GetHiredPage() {
       setCv(null);
     }, 1500);
   };
+
+    useEffect(() => {
+    // Clear session storage to restart session-specific data
+    sessionStorage.clear();
+  }, []);
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-[#f9f9f9] to-[#f3f3f3] py-20 px-4 sm:px-6 lg:px-8">

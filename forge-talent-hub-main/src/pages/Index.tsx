@@ -12,15 +12,14 @@ import "@/components/CSSNeeded/VRBackground.css";
 const Index: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
 
-  useEffect(() => {
-    // Check if the popup has been shown before in localStorage
-    const hasSeenPopup = localStorage.getItem('hasSeenPopup');
-    if (!hasSeenPopup) {
-      setShowPopup(true);
-      // Mark the popup as seen in localStorage
-      localStorage.setItem('hasSeenPopup', 'true');
-    }
-  }, []);
+useEffect(() => {
+  const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
+  if (!hasSeenPopup) {
+    setShowPopup(true);
+    sessionStorage.setItem('hasSeenPopup', 'true');
+  }
+}, []);
+
 
   const closePopup = () => {
     setShowPopup(false);
