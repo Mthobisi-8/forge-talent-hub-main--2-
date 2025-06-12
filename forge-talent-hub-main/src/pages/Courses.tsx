@@ -361,7 +361,7 @@ const testimonials: Testimonial[] = [
     text: "As a certified Cloud Practitioner through Forge Academy, I bring a solid foundation in cloud computing fundamentals including cloud services, architecture principles, and security frameworks. My certification has equipped me with proficiency in IaaS, PaaS, SaaS service types, deployment models, and cost optimization strategies.I am passionate about pursuing cloud engineering and cloud security engineering roles where I can apply my foundational knowledge while continuing to specialize. With strong analytical thinking and a commitment to continuous learning, I am seeking opportunities to contribute to organizations that value cloud innovation and security excellence.",
     name: "Tumelo Sebashe",
     role: "Cloud Learnership Graduate",
-    image: "Stumza.jpeg",
+    image: "Stum.jpeg",
   },
 ];
 
