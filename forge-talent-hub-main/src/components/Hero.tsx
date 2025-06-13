@@ -51,7 +51,7 @@ const Hero = () => {
               "Unlock your potential. Shape your future."
             </p>
             
-          <div className=" flex flex-col md:flex-row md:gap-6 md:ml-20 sm:ml-36">
+          <div className="flex flex-col md:flex-row md:gap-6 items-center justify-center">
           {/* Corporate button  */}
           <Button asChild className="bg-gradient-to-r from-purple-700 via-gray-200 to-purple-700 text-gray-950 hover:text-lg hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10 w-32">
           <Link to="/Referral">CORPORATE</Link>
